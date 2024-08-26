@@ -25,10 +25,21 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
 
         Category.category_count += 1
         Category.product_count += 1
+
+    def add_product(self, product: Product):
+        self.__products.append(product)
+        Category.product_count += 1
+
+    @property
+    def products(self):
+        product_str = ""
+        for i in self.__products:
+            product_str += f"{i.name}, {i.price} руб. Остаток: {i.quantity} шт."
+        return product_str
 
 
 if __name__ == "__main__":
