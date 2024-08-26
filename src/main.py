@@ -1,9 +1,9 @@
 class Product:
-    """ Информация о свойтвах продуктах"""
-    name: str # название продукта
-    description: str # описание  продукта
-    price: str # цена  продукта
-    quantity: float # количество продукта
+    """ Информация о свойствах продуктах"""
+    name: str  # название продукта
+    description: str  # описание продукта
+    price: str  # цена продукта
+    quantity: float  # количество продукта
 
     def __init__(self, name, description, price, quantity):
         self.name = name
@@ -13,14 +13,14 @@ class Product:
 
 
 class Category:
-    """ Информация о котегориях """
+    """ Информация о категориях """
 
     category_count = 0
     product_count = 0
 
-    name: str # название продукта
-    description: str # описание продукта
-    products: str # список товаров категории 
+    name: str  # название продукта
+    description: str  # описание продукта
+    products: str  # список товаров категории
 
     def __init__(self, name, description, products):
         self.name = name
