@@ -1,4 +1,7 @@
-from src.main import Product, Category, Smartphone, LawnGrass
+import pytest
+
+from src.category import Category
+from src.product import Product, LawnGrass, Smartphone
 
 
 def test_product(samsung):  # тест на продукт
@@ -57,12 +60,7 @@ def test_add_grass():
 
 def test_product_creation():
     # Фикстура для теста
-    product_data = {
-        "name": "Товар 1",
-        "description": "Описание товара 1",
-        "price": 100.0,
-        "quantity": 20
-    }
+    product_data = {"name": "Товар 1", "description": "Описание товара 1", "price": 100.0, "quantity": 20}
 
     product = Product.new_product(product_data)
 
@@ -123,3 +121,9 @@ def test_add_product():
     sum_product = product1 + product2
 
     assert sum_product == 800.0
+
+
+def test_mixin_log(capsys):
+    Product('a', 'b',  1, 2)
+    captured = capsys.readouterr()
+    assert "Product (a, b, 1, 2)" in captured.out
